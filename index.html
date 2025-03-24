@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>풍월량 짤 생성기</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="header-container">
+            <h1>풍월량 짤 생성기</h1>
+            <div class="logo-container">
+                <a href="https://chzzk.naver.com/live/7ce8032370ac5121dcabce7bad375ced" target="_blank" rel="noopener noreferrer"><img src="assets/icon/chzzk Icon_02.png"></a>
+                <a href="https://www.youtube.com/@hanryang1125" target="_blank" rel="noopener noreferrer"><img src="assets/icon/youtube.png"></a>
+            </div>
+        </div>
+
+        <div class="image-selector-container">
+            <h2>이미지 선택</h2>
+            <select id="imageSelector" class="image-dropdown">
+                <option value="" disabled selected>이미지를 선택해주세요.</option>
+            </select>
+        </div>
+
+        <div id="editorSection" style="visibility: hidden;">
+            <h2>자막 추가</h2>
+
+            <div class="text-controls">
+                <div class="text-input-container">
+                    <input type="text" id="textInput" placeholder="이미지에 표시할 자막을 입력해주세요.">
+                </div>
+
+                <div>
+                    <label for="fontSizeSlider">글꼴 크기:</label>
+                    <input type="range" id="fontSizeSlider" min="10" max="80" value="30">
+                    <span id="fontSizeValue">30px</span>
+                </div>
+
+                <div>
+                    <label for="colorPicker">글꼴 색상:</label>
+                    <input type="color" id="colorPicker" value="#FFFFFF">
+                </div>
+
+                <div>
+                    <label for="strokeWidthSlider">외곽선 두께:</label>
+                    <input type="range" id="strokeWidthSlider" min="0" max="10" value="2">
+                    <span id="strokeWidthValue">2px</span>
+                </div>
+
+                <div>
+                    <label for="strokeColorPicker">외곽선 색상:</label>
+                    <input type="color" id="strokeColorPicker" value="#000000">
+                </div>
+
+                <div>
+                    <label for="bgOpacitySlider">배경 불투명도:</label>
+                    <input type="range" id="bgOpacitySlider" min="0" max="100" value="50">
+                    <span id="bgOpacityValue">50%</span>
+                </div>
+
+                <div>
+                    <label for="bgColorPicker">배경 색상:</label>
+                    <input type="color" id="bgColorPicker" value="#000000">
+                </div>
+            </div>
+
+            <div class="editor-container">
+                <canvas id="imageCanvas"></canvas>
+            </div>
+
+            <div class="button-group">
+                <button id="addTextBtn">자막 추가</button>
+                <button id="resetBtn">초기화</button>
+                <button id="saveBtn">이미지 저장</button>
+                <button id="copyBtn">복사하기</button>
+            </div>
+
+        </div>
+        <footer>
+        <a href="https://github.com/dpwls02142/poong-maker" target="_blank" rel="noopener noreferrer">이미지 추가하러가기</a>
+        </footer>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+
+</html>
