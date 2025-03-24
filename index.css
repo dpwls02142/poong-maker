@@ -267,6 +267,8 @@ footer {
   button {
     padding: 9px 14px;
     font-size: 0.9rem;
+    min-width: 350px;
+    min-height: 44px;
   }
 }
 
@@ -290,5 +292,7 @@ footer {
 
   button {
     width: 100%;
+    min-width: 350px;
+    min-height: 44px;
   }
 }
