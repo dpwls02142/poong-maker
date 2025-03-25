@@ -71,28 +71,33 @@ function loadImageToCanvas(src) {
     canvasImage.crossOrigin = "Anonymous";
     canvasImage.src = src;
 }
+const myFont = new FontFace('BMJUA', 'url(https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMJUA.woff)');
+myFont.load().then((font) => {
+    document.fonts.add(font);
+    // console.log('Font loaded');
+  });
 
 // 자막 그리기
 function drawCaption() {
     if (!captionText || !canvasImage.complete) return;
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(canvasImage, 0, 0);
     
-    requestAnimationFrame(() => {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        ctx.drawImage(canvasImage, 0, 0);
-        
-        const text = captionText.text;
-        const fontSize = captionText.fontSize;
-        const fontColor = captionText.color;
-        const strokeWidth = captionText.strokeWidth;
-        const strokeColor = captionText.strokeColor;
-        const bgOpacity = captionText.bgOpacity;
-        const bgColor = captionText.bgColor;
-        
-        // 폰트 설정
-        ctx.font = `bold ${fontSize}px pretendard`;
+    const text = captionText.text;
+    const fontSize = captionText.fontSize;
+    const fontColor = captionText.color;
+    const strokeWidth = captionText.strokeWidth;
+    const strokeColor = captionText.strokeColor;
+    const bgOpacity = captionText.bgOpacity;
+    const bgColor = captionText.bgColor;
+    
+    myFont.load().then((font) => {
+        document.fonts.add(font);
+        ctx.font = `${fontSize}px BMJUA`;
         ctx.textAlign = 'center';
         ctx.textBaseline = 'bottom';
-        
+    
         // 텍스트 측정
         const metrics = ctx.measureText(text);
         const textWidth = metrics.width;
@@ -100,14 +105,11 @@ function drawCaption() {
         
         // 자막 위치 계산 (하단에서 10% 위)
         const x = canvas.width / 2;
-        const y = canvas.height - 20; // 하단에서 20px 위에 위치
+        const y = canvas.height - 20;
         
         // 배경 그리기
         if (bgOpacity > 0) {
-            // 배경 색상에 알파값 추가
             const bgColorWithOpacity = hexToRgba(bgColor, bgOpacity / 100);
-            
-            // 배경 패딩
             const padding = fontSize * 0.3;
             
             ctx.fillStyle = bgColorWithOpacity;
@@ -156,8 +158,7 @@ addTextBtn.addEventListener('click', function() {
             bgOpacity: parseInt(bgOpacitySlider.value),
             bgColor: bgColorPicker.value
         };
-        
-        setTimeout(drawCaption, 50);
+        drawCaption();
     }
 });
 
