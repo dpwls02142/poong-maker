@@ -56,8 +56,12 @@ function selectImage(imgElement, src) {
 }
 
 function loadImageToCanvas(src) {
+    if (!sampleImages.includes(src)) {
+        alert('잘못된 이미지 소스입니다.');
+        return;
+    }
+    
     canvasImage.onload = function() {
-        
         canvas.width = canvasImage.width;
         canvas.height = canvasImage.height;
         
@@ -71,6 +75,7 @@ function loadImageToCanvas(src) {
     canvasImage.crossOrigin = "Anonymous";
     canvasImage.src = src;
 }
+
 const myFont = new FontFace('BMJUA', 'url(https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMJUA.woff)');
 myFont.load().then((font) => {
     document.fonts.add(font);
