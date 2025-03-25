@@ -1,5 +1,6 @@
 ### 풍월량 짤 생성기
-![Image](https://github.com/user-attachments/assets/fd694ec0-506d-4762-a7ef-a06ff6661282)
+![ezgif com-speed](https://github.com/user-attachments/assets/cf0c4a15-b6a1-4794-8bc8-5f889852a5ef)
+
 
 스트리머 풍월량 짤을 무한으로 즐겨요
 
